@@ -12,7 +12,7 @@ import {
   Platform
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { loginUser } from '../../services/firebase';
+import { loginUser } from '../../services/supabase';
 
 const LoginScreen = () => {
   const navigation = useNavigation<any>();

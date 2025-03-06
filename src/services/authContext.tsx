@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { auth, getUserProfile } from './firebase';
-import { onAuthStateChanged, User } from 'firebase/auth';
+import { getUserProfile, onAuthStateChange, supabase } from './supabase';
+import { User } from '@supabase/supabase-js';
 
 interface UserProfile {
   email: string;
@@ -31,12 +31,34 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    // Get the current session
+    const getCurrentUser = async () => {
+      const { data } = await supabase.auth.getSession();
+      const currentUser = data.session?.user || null;
       setUser(currentUser);
       
       if (currentUser) {
-        // Fetch user profile from Firestore
-        const profileResult = await getUserProfile(currentUser.uid);
+        // Fetch user profile from Supabase
+        const profileResult = await getUserProfile(currentUser.id);
+        if (profileResult.success) {
+          setUserProfile(profileResult.profile as UserProfile);
+        }
+      } else {
+        setUserProfile(null);
+      }
+      
+      setLoading(false);
+    };
+
+    getCurrentUser();
+
+    // Set up auth state change listener
+    const { data: authListener } = onAuthStateChange(async (currentUser) => {
+      setUser(currentUser);
+      
+      if (currentUser) {
+        // Fetch user profile from Supabase
+        const profileResult = await getUserProfile(currentUser.id);
         if (profileResult.success) {
           setUserProfile(profileResult.profile as UserProfile);
         }
@@ -47,7 +69,10 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    // Clean up subscription
+    return () => {
+      authListener?.subscription.unsubscribe();
+    };
   }, []);
 
   const value = {

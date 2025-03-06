@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RNCamera } from 'react-native-camera';
-import { getUserProfile } from '../../services/firebase';
+import { getUserProfile } from '../../services/supabase';
 
 interface DriverData {
   userId: string;

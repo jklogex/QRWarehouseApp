@@ -13,7 +13,7 @@ import {
   Platform
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { registerUser } from '../../services/firebase';
+import { registerUser } from '../../services/supabase';
 
 type RoleType = 'driver' | 'supervisor' | 'security';
 

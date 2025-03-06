@@ -10,7 +10,7 @@ import {
   ScrollView
 } from 'react-native';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
-import { updateDriverStatus } from '../../services/firebase';
+import { updateDriverStatus } from '../../services/supabase';
 
 interface Driver {
   id: string;

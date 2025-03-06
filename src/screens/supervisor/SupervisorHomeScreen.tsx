@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../services/authContext';
-import { logoutUser, getDriversList } from '../../services/firebase';
+import { logoutUser, getDriversList } from '../../services/supabase';
 
 interface Driver {
   id: string;

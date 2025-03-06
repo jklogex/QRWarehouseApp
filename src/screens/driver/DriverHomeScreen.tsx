@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../services/authContext';
-import { logoutUser } from '../../services/firebase';
+import { logoutUser } from '../../services/supabase';
 
 const DriverHomeScreen = () => {
   const navigation = useNavigation<any>();

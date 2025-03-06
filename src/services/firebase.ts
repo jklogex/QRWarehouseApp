@@ -3,14 +3,14 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { getFirestore, collection, doc, setDoc, getDoc, updateDoc, getDocs, query, where } from 'firebase/firestore';
 
 // Your Firebase configuration
-// Replace with your actual Firebase config when deploying
+// Replace this with the configuration from your Firebase console
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAvL97CVqv4D5eK3eG3PKlJXveHpPbI8yw", // Replace with your actual API key
+  authDomain: "qrwarehouse-demo.firebaseapp.com", // Replace with your actual auth domain
+  projectId: "qrwarehouse-demo", // Replace with your actual project ID
+  storageBucket: "qrwarehouse-demo.appspot.com", // Replace with your actual storage bucket
+  messagingSenderId: "123456789012", // Replace with your actual messaging sender ID
+  appId: "1:123456789012:web:abcdef1234567890abcdef" // Replace with your actual app ID
 };
 
 // Initialize Firebase
