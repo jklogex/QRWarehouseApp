@@ -1,97 +1,113 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Warehouse QR Authorization App
 
-# Getting Started
+A React Native mobile application for authorizing warehouse entry and exit using QR codes. This app is designed for three types of users: Drivers, Supervisors, and Security Personnel.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+### User Authentication & Role Management
+- Secure login and registration system
+- Role-based access control (Driver, Supervisor, Security)
+- User profile management
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Driver Features
+- Unique QR code generation with driver details and status
+- Real-time status updates (Cleared/Not Cleared for exit)
+- Simple interface to present QR code to security personnel
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Supervisor Features
+- View and manage a list of all drivers
+- Update driver status (Clear/Not Clear for exit)
+- Real-time updates to driver QR codes
 
-```sh
-# Using npm
-npm start
+### Security Guard Features
+- QR code scanning functionality
+- Verification of driver status and identity
+- Real-time validation against database records
 
-# OR using Yarn
-yarn start
+## Technical Implementation
+
+- **Frontend**: React Native for cross-platform mobile development
+- **Backend**: Firebase Authentication and Firestore Database
+- **QR Code**: Generation and scanning capabilities
+- **Real-time Updates**: Immediate reflection of status changes
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14 or later)
+- npm or yarn
+- React Native development environment set up
+- Android Studio (for Android development)
+- Xcode (for iOS development, Mac only)
+
+### Installation
+
+1. Clone the repository
+```
+git clone <repository-url>
+cd QRWarehouseApp
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+2. Install dependencies
+```
+npm install
 ```
 
-### iOS
+3. Configure Firebase
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Authentication and Firestore Database
+   - Update the Firebase configuration in `src/services/firebase.ts`
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+4. Run the application
+```
+# For Android
+npx react-native run-android
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+# For iOS
+npx react-native run-ios
 ```
 
-Then, and every time you update your native dependencies, run:
+## Project Structure
 
-```sh
-bundle exec pod install
+```
+src/
+├── assets/         # Images, fonts, and other static assets
+├── components/     # Reusable UI components
+├── navigation/     # Navigation configuration
+├── screens/        # Screen components
+│   ├── auth/       # Authentication screens
+│   ├── driver/     # Driver-specific screens
+│   ├── supervisor/ # Supervisor-specific screens
+│   └── security/   # Security-specific screens
+└── services/       # Firebase and other services
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Usage
 
-```sh
-# Using npm
-npm run ios
+### Driver Workflow
+1. Log in as a Driver
+2. View current exit clearance status
+3. Navigate to QR Code screen
+4. Present QR code to security personnel at exit
 
-# OR using Yarn
-yarn ios
-```
+### Supervisor Workflow
+1. Log in as a Supervisor
+2. View list of drivers
+3. Select a driver to view details
+4. Update driver's clearance status as needed
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Security Guard Workflow
+1. Log in as Security
+2. Scan driver's QR code at exit point
+3. Verify driver's identity and clearance status
+4. Allow or deny exit based on status
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## License
 
-## Step 3: Modify your app
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Now that you have successfully run the app, let's make changes!
+## Acknowledgments
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- React Native community
+- Firebase for backend services
+- All contributors to this project
