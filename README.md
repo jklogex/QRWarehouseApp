@@ -1,113 +1,113 @@
-# Warehouse QR Authorization App
+# Aplicación de Autorización QR para Almacén
 
-A React Native mobile application for authorizing warehouse entry and exit using QR codes. This app is designed for three types of users: Drivers, Supervisors, and Security Personnel.
+Una aplicación móvil en React Native para autorizar la entrada y salida del almacén mediante códigos QR. Esta aplicación está diseñada para tres tipos de usuarios: Conductores, Supervisores y Personal de Seguridad.
 
-## Features
+## Características
 
-### User Authentication & Role Management
-- Secure login and registration system
-- Role-based access control (Driver, Supervisor, Security)
-- User profile management
+### Autenticación de Usuario y Gestión de Roles
+- Sistema seguro de inicio de sesión y registro
+- Control de acceso basado en roles (Conductor, Supervisor, Seguridad)
+- Gestión de perfiles de usuario
 
-### Driver Features
-- Unique QR code generation with driver details and status
-- Real-time status updates (Cleared/Not Cleared for exit)
-- Simple interface to present QR code to security personnel
+### Funciones del Conductor
+- Generación de código QR único con los detalles y estado del conductor
+- Actualizaciones de estado en tiempo real (Autorizado/No Autorizado para salir)
+- Interfaz simple para presentar el código QR al personal de seguridad
 
-### Supervisor Features
-- View and manage a list of all drivers
-- Update driver status (Clear/Not Clear for exit)
-- Real-time updates to driver QR codes
+### Funciones del Supervisor
+- Ver y gestionar una lista de todos los conductores
+- Actualizar el estado del conductor (Autorizar/No Autorizar para salir)
+- Actualizaciones en tiempo real de los códigos QR de los conductores
 
-### Security Guard Features
-- QR code scanning functionality
-- Verification of driver status and identity
-- Real-time validation against database records
+### Funciones del Guardia de Seguridad
+- Funcionalidad de escaneo de códigos QR
+- Verificación del estado e identidad del conductor
+- Validación en tiempo real contra los registros de la base de datos
 
-## Technical Implementation
+## Implementación Técnica
 
-- **Frontend**: React Native for cross-platform mobile development
-- **Backend**: Firebase Authentication and Firestore Database
-- **QR Code**: Generation and scanning capabilities
-- **Real-time Updates**: Immediate reflection of status changes
+- **Frontend**: React Native para desarrollo móvil multiplataforma
+- **Backend**: Firebase Authentication y Firestore Database
+- **Código QR**: Capacidades de generación y escaneo
+- **Actualizaciones en Tiempo Real**: Reflejo inmediato de los cambios de estado
 
-## Getting Started
+## Primeros Pasos
 
-### Prerequisites
-- Node.js (v14 or later)
-- npm or yarn
-- React Native development environment set up
-- Android Studio (for Android development)
-- Xcode (for iOS development, Mac only)
+### Requisitos Previos
+- Node.js (v14 o posterior)
+- npm o yarn
+- Entorno de desarrollo React Native configurado
+- Android Studio (para desarrollo en Android)
+- Xcode (para desarrollo en iOS, solo Mac)
 
-### Installation
+### Instalación
 
-1. Clone the repository
+1. Clonar el repositorio
 ```
-git clone <repository-url>
+git clone <url-del-repositorio>
 cd QRWarehouseApp
 ```
 
-2. Install dependencies
+2. Instalar dependencias
 ```
 npm install
 ```
 
-3. Configure Firebase
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Authentication and Firestore Database
-   - Update the Firebase configuration in `src/services/firebase.ts`
+3. Configurar Firebase
+   - Crear un proyecto Firebase en [Firebase Console](https://console.firebase.google.com/)
+   - Habilitar Autenticación y Firestore Database
+   - Actualizar la configuración de Firebase en `src/services/firebase.ts`
 
-4. Run the application
+4. Ejecutar la aplicación
 ```
-# For Android
+# Para Android
 npx react-native run-android
 
-# For iOS
+# Para iOS
 npx react-native run-ios
 ```
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
 src/
-├── assets/         # Images, fonts, and other static assets
-├── components/     # Reusable UI components
-├── navigation/     # Navigation configuration
-├── screens/        # Screen components
-│   ├── auth/       # Authentication screens
-│   ├── driver/     # Driver-specific screens
-│   ├── supervisor/ # Supervisor-specific screens
-│   └── security/   # Security-specific screens
-└── services/       # Firebase and other services
+├── assets/         # Imágenes, fuentes y otros activos estáticos
+├── components/     # Componentes UI reutilizables
+├── navigation/     # Configuración de navegación
+├── screens/        # Componentes de pantalla
+│   ├── auth/       # Pantallas de autenticación
+│   ├── driver/     # Pantallas específicas para conductores
+│   ├── supervisor/ # Pantallas específicas para supervisores
+│   └── security/   # Pantallas específicas para seguridad
+└── services/       # Firebase y otros servicios
 ```
 
-## Usage
+## Uso
 
-### Driver Workflow
-1. Log in as a Driver
-2. View current exit clearance status
-3. Navigate to QR Code screen
-4. Present QR code to security personnel at exit
+### Flujo de Trabajo del Conductor
+1. Iniciar sesión como Conductor
+2. Ver el estado actual de autorización de salida
+3. Navegar a la pantalla de Código QR
+4. Presentar el código QR al personal de seguridad en la salida
 
-### Supervisor Workflow
-1. Log in as a Supervisor
-2. View list of drivers
-3. Select a driver to view details
-4. Update driver's clearance status as needed
+### Flujo de Trabajo del Supervisor
+1. Iniciar sesión como Supervisor
+2. Ver lista de conductores
+3. Seleccionar un conductor para ver detalles
+4. Actualizar el estado de autorización del conductor según sea necesario
 
-### Security Guard Workflow
-1. Log in as Security
-2. Scan driver's QR code at exit point
-3. Verify driver's identity and clearance status
-4. Allow or deny exit based on status
+### Flujo de Trabajo del Guardia de Seguridad
+1. Iniciar sesión como Seguridad
+2. Escanear el código QR del conductor en el punto de salida
+3. Verificar la identidad y el estado de autorización del conductor
+4. Permitir o denegar la salida según el estado
 
-## License
+## Licencia
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Este proyecto está licenciado bajo la Licencia MIT - consulte el archivo LICENSE para más detalles.
 
-## Acknowledgments
+## Agradecimientos
 
-- React Native community
-- Firebase for backend services
-- All contributors to this project
+- Comunidad de React Native
+- Firebase por los servicios de backend
+- Todos los contribuyentes a este proyecto
